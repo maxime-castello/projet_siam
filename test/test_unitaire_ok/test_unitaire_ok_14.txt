@@ -1,0 +1,9 @@
+#test_unitaire_ok_14
+#
+# test si un animal peut sortir du plateau
+#(lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_14_entree.txt
+d 0 0 v v
+fin
+#comportement attendu:
+# le rhino sort du plateau

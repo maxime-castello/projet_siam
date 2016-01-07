@@ -1,0 +1,9 @@
+#test_unitaire_ok_03
+#
+# test si il est possible de deplacer un rhinocéros (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_03_entree.txt
+d 1 0 > >
+fin
+#comportement attendu:
+# le rhinocéros se deplace d'une case et son orientation est "droite"
+

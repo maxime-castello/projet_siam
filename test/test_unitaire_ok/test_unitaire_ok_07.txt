@@ -1,0 +1,9 @@
+#test_unitaire_ok_07
+#
+# test si il est possible de changer d'orientation à un rhinocéros dont l'orientation initiale est 
+# "bas" (lecture d'un # fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_07_entree.txt
+o 0 4 >
+fin
+#comportement attendu:
+# l'orientation est modifié, elle devient "droite" 

@@ -1,0 +1,9 @@
+#test_unitaire_ko_03
+#
+# test l'interdiction d'introduction d'une piece avec une poussée non # valide
+lit ../test/test_unitaire_ko/test_unitaire_ko_03_entree.txt
+n 0 2 > ^
+fin
+#Comportement attendu:
+# le rhinoceros est à gauche de 3 rocher, aucune piéce ne peut le #déplacer vers la droite. Aucune piece ne doit bouger, le mouvement #est invalide.
+

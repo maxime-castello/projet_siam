@@ -1,0 +1,8 @@
+#test_unitaire_ko_08
+#
+# test l'interdiction poussee mauvaise orientation
+lit ../test/test_unitaire_ko/test_unitaire_ko_08_entree.txt
+d 1 1 > ^
+fin
+#Comportement attendu:
+# un éléphant orienté vers le haut ne peut pas pousser vers la droite aucune piece ne doit bouger, le mouvement est invalide.

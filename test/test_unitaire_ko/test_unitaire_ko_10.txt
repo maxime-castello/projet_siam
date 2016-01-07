@@ -1,0 +1,7 @@
+#test_unitaire_ko_10
+#
+# test l'interdiction ...
+lit ../test/test_unitaire_ko/test_unitaire_ko_10_entree.txt
+fin
+#Comportement attendu:
+# aucune piece ne doit bouger, le mouvement est invalide.

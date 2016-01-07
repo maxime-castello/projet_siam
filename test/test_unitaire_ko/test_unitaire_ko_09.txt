@@ -1,0 +1,8 @@
+#test_unitaire_ko_09
+#
+# test l'interdiction d'introduction d'une 6eme piece
+lit ../test/test_unitaire_ko/test_unitaire_ko_09_entree.txt
+n 4 4 >
+fin
+#Comportement attendu:
+# on ne peut plus introduire de nouveaux éléphants car les 5 sont déjà sur le plateau, le mouvement est invalide.

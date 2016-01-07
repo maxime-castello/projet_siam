@@ -1,0 +1,9 @@
+#test_unitaire_ok_13
+#
+# test si un animal peut pousser un rocher suivi d'un animal orienté dans la meme direction que la piece poussante elle meme suivi #d'un animal avec une orientation inverse au déplacement
+#(lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_13_entree.txt
+d 1 1 > >
+fin
+#comportement attendu:
+# le premier animal pousse les piece, le rhino sort du plateau

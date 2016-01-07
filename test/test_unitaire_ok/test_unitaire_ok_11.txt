@@ -1,0 +1,9 @@
+#test_unitaire_ok_11
+#
+# test si deux animaux orientés dans la meme direction peuvent pousser un animal ayant une direction inverse à # eux
+#(lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_11_entree.txt
+d 1 1 > >
+fin
+#comportement attendu:
+# les éléphants poussent le rhinocéros

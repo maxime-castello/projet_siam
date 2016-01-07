@@ -1,0 +1,9 @@
+#test_unitaire_ok_09
+#
+# test si il est possible de pousser un animal qui a une direction perpendiculaire à la piece poussante  
+#(lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_09_entree.txt
+d 2 3 > >
+fin
+#comportement attendu:
+# le rhinocéros est poussé vers la droite par l'éléphant 

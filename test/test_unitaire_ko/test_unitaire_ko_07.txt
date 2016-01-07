@@ -1,0 +1,8 @@
+#test_unitaire_ko_07
+#
+# test l'introduction hors plateau
+lit ../test/test_unitaire_ko/test_unitaire_ko_07_entree.txt
+n 5 2 ^
+fin
+#Comportement attendu:
+# aucun changement, le mouvement est invalide.

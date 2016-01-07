@@ -1,0 +1,9 @@
+#test_unitaire_ok_10
+#
+# test si il est possible de pousser un rocher suivi parr deux animaux ayant une direction perpendiculaire à #la piece poussante  
+#(lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_10_entree.txt
+d 2 1 ^ ^
+fin
+#comportement attendu:
+# le rocher et les animaux sont poussés vers le haut par l'éléphant 

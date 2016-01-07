@@ -1,0 +1,8 @@
+#test_unitaire_ok_08
+#
+# test si il est possible de pousser un rocher  (lecture d'un # fichier d'entree)
+lit ../test/test_unitaire_ok/test_unitaire_ok_08_entree.txt
+d 2 3 v v
+fin
+#comportement attendu:
+# le rocher est poussé vers le bas par l'éléphant

@@ -1,0 +1,8 @@
+#test_unitaire_ko_06
+#
+# test l'interdiction d'introduction en milieu de plateau
+lit ../test/test_unitaire_ko/test_unitaire_ko_06_entree.txt
+n 2 3 ^
+fin
+#Comportement attendu:
+# aucune piece ne doit etre introduite, le mouvement est invalide.
