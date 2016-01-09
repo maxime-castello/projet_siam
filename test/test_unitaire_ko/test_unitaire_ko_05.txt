@@ -5,5 +5,5 @@ lit ../test/test_unitaire_ko/test_unitaire_ko_04_entree.txt
 o 2 2 ^ 
 fin
 #Comportement attendu:
-# les rochers n'ont pas d'orientation. Aucune piece ne doit bouger, ni #changer d'orientation, le mouvement est invalide.
+# les rochers n'ont pas d'orientation. Aucune piece ne doit bouger, ni changer d'orientation, le mouvement est invalide.
 

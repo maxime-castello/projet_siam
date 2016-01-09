@@ -78,20 +78,9 @@ int piece_etre_case_vide(const piece_siam* piece)
 void piece_definir(piece_siam* piece,type_piece type,orientation_deplacement orientation)
 {
     assert(piece!=NULL);
-    assert(piece_etre_integre(piece));
     assert(type_etre_integre(type));
     assert(orientation_etre_integre(orientation));  
 
-    /*if(type_etre_animal(type)==1 && orientation_etre_integre_deplacement(orientation)==1)
-    {
-        piece->type=type;
-        piece->orientation=orientation;
-    }
-    if(type_etre_animal(type)==0 && orientation==aucune_orientation)
-    {
-        piece->type=type;
-        piece->orientation=orientation;
-    }*/
     
      piece->type=type;
      piece->orientation=orientation;

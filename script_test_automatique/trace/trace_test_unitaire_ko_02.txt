@@ -55,13 +55,24 @@ joueur 0 (elephant)
 [1] *** | *** | *** | *** | *** | 
 [0] *** | *** | *** | *** | *** | 
     [0]   [1]   [2]   [3]   [4]   
->  lit ../test/test_unitaire_ko/test_unitaire_ko_10_entree.txt
+>  lit ../test/test_unitaire_ko/test_unitaire_ko_02_entree.txt
 
 joueur 0 (elephant)
 [4] *** | *** | *** | *** | *** | 
 [3] *** | *** | *** | *** | *** | 
-[2] r-v | RRR | RRR | RRR | *** | 
-[1] e-^ | *** | *** | *** | *** | 
+[2] e-> | RRR | RRR | RRR | *** | 
+[1] *** | *** | *** | *** | *** | 
+[0] *** | *** | *** | *** | *** | 
+    [0]   [1]   [2]   [3]   [4]   
+> coup invalide
+
+Echec deplacement piece impossible
+
+joueur 0 (elephant)
+[4] *** | *** | *** | *** | *** | 
+[3] *** | *** | *** | *** | *** | 
+[2] e-> | RRR | RRR | RRR | *** | 
+[1] *** | *** | *** | *** | *** | 
 [0] *** | *** | *** | *** | *** | 
     [0]   [1]   [2]   [3]   [4]   
 > Fin de la partie

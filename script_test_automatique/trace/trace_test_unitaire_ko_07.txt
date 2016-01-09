@@ -55,7 +55,17 @@ joueur 0 (elephant)
 [1] *** | *** | *** | *** | *** | 
 [0] *** | *** | *** | *** | *** | 
     [0]   [1]   [2]   [3]   [4]   
->  lit ../test/test_unitaire_ko/test_unitaire_ko_10_entree.txt
+>  lit ../test/test_unitaire_ko/test_unitaire_ko_07_entree.txt
+
+joueur 0 (elephant)
+[4] *** | *** | *** | *** | *** | 
+[3] *** | *** | *** | *** | *** | 
+[2] r-v | RRR | RRR | RRR | *** | 
+[1] e-^ | *** | *** | *** | *** | 
+[0] *** | *** | *** | *** | *** | 
+    [0]   [1]   [2]   [3]   [4]   
+> Coordonnees invalides
+Introduction piece impossible aux coordonnees 5 2
 
 joueur 0 (elephant)
 [4] *** | *** | *** | *** | *** | 

@@ -17,8 +17,24 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
     
     assert(type_etre_animal(type));
     assert(orientation_etre_integre_deplacement(orientation));
+    // cas de l'introduction hors coin quand la piece n'est pas vide
+    if ( (plateau->piece[x][y].type!=case_vide) && ((x==0 && y>0 && y<4 && orientation!=droite) || (x==4 && y>0 && y<4 && orientation!=gauche) || (y==0 && x>0 && x<4 && orientation!=haut) || (y==4 && x>0 && x<4 && orientation!=bas) ))
+    {
+        return 0;
+    }
+    // cas de l'introduction dans les coins quand la piece n'est pas vide et que la poussée est valide
+    if ( (plateau->piece[x][y].type!=case_vide) &&
+        poussee_etre_valide(plateau, x, y, orientation) && ( ( x==0 && y==0 && (orientation==haut || orientation== droite) ) ||
+                                                             ( x==4 && y==4 && (orientation==bas || orientation== gauche) ) ||
+                                                             ( x==4 && y==0 && (orientation==haut || orientation== gauche) ) ||
+                                                             ( x==0 && y==4 && (orientation==bas || orientation== droite) )
+                                                          )
+       )
+    {
+        return 1;
+    }
     
-    if( (coordonnees_etre_bordure_plateau(x, y)==1) && poussee_etre_valide(plateau, x, y, orientation) && plateau_denombrer_type(plateau, type)<5 ) 
+    if( (coordonnees_etre_bordure_plateau(x, y)==1) && poussee_etre_valide(plateau, x, y, orientation) && plateau_denombrer_type(plateau, type)<5 )
     {
         
         return 1;
@@ -107,28 +123,29 @@ int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* platea
     
     if(type_etre_animal(plateau->piece[x0][y0].type))
     {
-            orientation_deplacement orientation_piece_qui_pousse=plateau->piece[x0][y0].orientation;
-            if ( (x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 &&          	    direction_deplacement==bas) || (y0==4 && direction_deplacement==haut) )
+         orientation_deplacement orientation_piece_qui_pousse=plateau->piece[x0][y0].orientation;
+         if ( (x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut) )
     {
         return 1;
     }
-            coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
         
-            if( coordonnees_etre_dans_plateau(x0, y0)==0 || poussee_etre_valide(plateau, x0, y0, direction_deplacement )   )
-            {
-                if ( piece_etre_case_vide(&plateau->piece[x0][y0])==0 && orientation!=direction_deplacement )
-                {
-                    puts("orientation finale non valide");
-                    return 0;
+    coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
+        
+    if( coordonnees_etre_dans_plateau(x0, y0)==0 || poussee_etre_valide(plateau, x0, y0, direction_deplacement )   )
+    {
+        if ( piece_etre_case_vide(&plateau->piece[x0][y0])==0 && orientation!=direction_deplacement )
+        {
+            puts("orientation finale non valide");
+            return 0;
                     
-                }
-                if(piece_etre_case_vide(&plateau->piece[x0][y0])==0 && orientation_piece_qui_pousse!=direction_deplacement )
-                {
-                    puts("orientation de la piece qui pousse differente de la direction de deplacement");
-                    return 0;
-                }
-                return 1;
-            }
+        }
+        if(piece_etre_case_vide(&plateau->piece[x0][y0])==0 && orientation_piece_qui_pousse!=direction_deplacement )
+        {
+            puts("orientation de la piece qui pousse differente de la direction de deplacement");
+            return 0;
+        }
+        return 1;
+    }
     }
     if (poussee_etre_valide(plateau, x0, y0, direction_deplacement)) return 1;
     return 0;
@@ -160,15 +177,30 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau,
                 int x=x0;
                 int y=y0;
                 
-                coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
-                if (coordonnees_etre_dans_plateau(x0, y0)==0)
+
+                // on réalise des boucles afin de s'assurer que les coordonnées ne sortiront pas du plateau
+                if (coordonnees_etre_bordure_plateau(x0, y0)==0)
                 {
-                    coordonnees_appliquer_deplacement(&x0,&y0,orientation_inverser(direction_deplacement));
+                    coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
+                    
 
                 }
-                else if (piece_etre_case_vide(&plateau->piece[x0][y0]))
+                else if ( (x0==0 && direction_deplacement!=gauche) || (x0==4 && direction_deplacement!=droite) || (y0==0 && direction_deplacement!=bas) || (y0==4 && direction_deplacement!=haut) )
                 {
-                    piece_definir(&plateau->piece[x0][y0],type,orientation_final);
+                    coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
+                    
+
+                }
+                else if ( (x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut) )
+                {
+                    piece_definir_case_vide(&plateau->piece[x0][y0]);
+                    plateau->piece[x0][y0].orientation=aucune_orientation;
+                }
+
+                if (piece_etre_case_vide(&plateau->piece[x0][y0]) )
+                {
+                    if (type!=case_vide)
+                    {piece_definir(&plateau->piece[x0][y0],type,orientation_final);}
                 }
                 else
                 {

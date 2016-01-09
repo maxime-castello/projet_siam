@@ -15,7 +15,7 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu,
     coup_jeu coup;
     coup_jeu_initialiser(&coup);
     
-    if(plateau_modification_introduire_piece_etre_possible(&jeu->plateau, x, y, jeu_obtenir_type_animal_courant(jeu), orientation)==1)
+    if(plateau_modification_introduire_piece_etre_possible(&jeu->plateau, x, y, jeu_obtenir_type_animal_courant(jeu), orientation)==1 )
     {
         
         

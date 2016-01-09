@@ -35,11 +35,12 @@ void jeu_initialiser(jeu_siam* jeu)
     jeu->plateau.piece[3][3].orientation=gauche;
     jeu->plateau.piece[0][3].type=elephant;
     jeu->plateau.piece[0][3].orientation=droite;
-    jeu->plateau.piece[1][3].type=elephant;
+    jeu->plateau.piece[1][1].type=elephant;
+    jeu->plateau.piece[1][1].orientation=bas;
+    jeu->plateau.piece[1][3].type=rhinoceros;
     jeu->plateau.piece[1][3].orientation=bas;
-    jeu->plateau.piece[2][3].type=rhinoceros;
-    jeu->plateau.piece[2][3].orientation=droite;*/
-
+    jeu->plateau.piece[1][4].type=elephant;
+    jeu->plateau.piece[1][4].orientation=bas;*/
     jeu->joueur=0;
 }
 
