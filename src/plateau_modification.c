@@ -18,12 +18,13 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
     assert(type_etre_animal(type));
     assert(orientation_etre_integre_deplacement(orientation));
     // cas de l'introduction hors coin quand la piece n'est pas vide
-    if ( (plateau->piece[x][y].type!=case_vide) && ((x==0 && y>0 && y<4 && orientation!=droite) || (x==4 && y>0 && y<4 && orientation!=gauche) || (y==0 && x>0 && x<4 && orientation!=haut) || (y==4 && x>0 && x<4 && orientation!=bas) ))
+    if ( (plateau_exister_piece(plateau, x, y)) && ((x==0 && y>0 && y<4 && orientation!=droite) || (x==4 && y>0 && y<4 && orientation!=gauche) || (y==0 && x>0 && x<4 && orientation!=haut) || (y==4 && x>0 && x<4 && orientation!=bas) ))
     {
         return 0;
     }
+    
     // cas de l'introduction dans les coins quand la piece n'est pas vide et que la poussée est valide
-    if ( (plateau->piece[x][y].type!=case_vide) &&
+    if ( (plateau_exister_piece(plateau, x, y)) &&
         poussee_etre_valide(plateau, x, y, orientation) && ( ( x==0 && y==0 && (orientation==haut || orientation== droite) ) ||
                                                              ( x==4 && y==4 && (orientation==bas || orientation== gauche) ) ||
                                                              ( x==4 && y==0 && (orientation==haut || orientation== gauche) ) ||

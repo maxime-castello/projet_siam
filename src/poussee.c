@@ -26,7 +26,7 @@ int poussee_etre_valide(const plateau_siam* plateau ,int x, int y, orientation_d
            {
                cpt_orientation_inverse++;
            }
-        while(plateau->piece[x][y].type!=case_vide && coordonnees_etre_dans_plateau(x, y))
+        while(plateau_exister_piece(plateau, x, y) && coordonnees_etre_dans_plateau(x, y))
         {
             
                 if(plateau->piece[x][y].type==rocher)
@@ -122,7 +122,7 @@ void poussee_realiser(plateau_siam* plateau ,
         
 
         
-    }
+    } assert(plateau_etre_integre(plateau));
     
 
 }
