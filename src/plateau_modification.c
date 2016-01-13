@@ -166,10 +166,9 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau,
     if ( (x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut) )
     {
         piece_definir_case_vide(&plateau->piece[x0][y0]);
-        plateau->piece[x0][y0].orientation=aucune_orientation;
     }
-    
-    if(coordonnees_etre_dans_plateau(x0, y0))
+
+    if(plateau_exister_piece(plateau, x0, y0) && coordonnees_etre_dans_plateau(x0, y0))
     {
         piece_siam* piece=plateau_obtenir_piece(plateau,x0,y0);
         type_piece type=piece->type;
