@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include "joueur.h"
 
 int poussee_etre_valide(const plateau_siam* plateau ,int x, int y, orientation_deplacement orientation)
 {
@@ -85,6 +86,8 @@ void poussee_realiser(plateau_siam* plateau ,
     assert(coordonnees_etre_dans_plateau(x,y));
     assert(orientation_etre_integre_deplacement(orientation));
     int compteur_deplacement=1; // compteur de déplacement
+    condition_victoire_partie condition;
+    condition_victoire_initialiser(&condition);
     if(poussee_etre_valide(plateau, x, y, orientation))
     {
         
@@ -105,7 +108,8 @@ void poussee_realiser(plateau_siam* plateau ,
             
             compteur_deplacement--;
         }
-        
+        int x0=x;
+        int y0=y;
         while(compteur_deplacement!=-1)
         {
             plateau_modification_deplacer_piece(plateau, x, y, orientation, plateau->piece[x][y].orientation);
@@ -119,11 +123,28 @@ void poussee_realiser(plateau_siam* plateau ,
            
             
         }
-        
+        // condition victoire
+        if (coordonnees_etre_bordure_plateau(x0, y0) && plateau_denombrer_type(plateau, rocher)<3)
+        {
+            condition.victoire=1;
+            while(coordonnees_etre_dans_plateau(x0, y0))
+            {
+                if (plateau->piece[x0][y0].orientation==orientation)
+                {
+                    condition.joueur=joueur_obtenir_numero_a_partir_animal(plateau->piece[x0][y0].type);
+                    condition_victoire_afficher(&condition);abort();
+                }
+                else
+                {
+                    coordonnees_appliquer_deplacement(&x0, &y0, orientation_inverser(orientation));
+                }
+            }
+        }
 
         
     } assert(plateau_etre_integre(plateau));
     
+
 
 }
 
